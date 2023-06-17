@@ -3,8 +3,8 @@ import pickle
 import pandas as pd
 
 # Muat model yang telah dilatih
-filename = 'diabetes-predict-model.pkl'
-classifier = pickle.load(open(filename, 'rb'))
+with open('diabetes-predict-model.pkl', 'rb') as file:
+    model = pickle.load(file)
 
 # Load dataset
 df = pd.read_csv('diabetes_prediction_dataset.csv')
