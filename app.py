@@ -1,10 +1,10 @@
 import streamlit as st
-import pickle
+import joblib
 import pandas as pd
 
 # Muat model yang telah dilatih
-filename = 'diabetes-predict-model.pkl'
-classifier = pickle.load(open(filename, 'rb'))
+filename = 'diabetes-predict-model.joblib'
+classifier = joblib.load(filename)
 
 # Load dataset
 df = pd.read_csv('diabetes_prediction_dataset.csv')

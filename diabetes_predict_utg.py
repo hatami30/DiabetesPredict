@@ -53,7 +53,7 @@ classifier = RandomForestClassifier(n_estimators=20)
 classifier.fit(X_train, y_train)
 
 # Lakukan prediksi pada data uji
-# y_pred = classifier.predict(X_test)
+y_pred = classifier.predict(X_test)
 
 # Evaluasi performa model
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
@@ -70,7 +70,6 @@ print("Recall:", recall)
 f1 = f1_score(y_test, y_pred)
 print("F1-score:", f1)
 
-# Simpan model ke dalam file pickle
-import pickle
-filename = 'diabetes-predict-model.pkl'
-pickle.dump(classifier, open(filename, 'wb'))
+# Simpan model ke dalam file joblib
+import joblib
+joblib.dump(classifier, 'diabetes-predict-model.joblib')
